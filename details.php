@@ -5,11 +5,11 @@
     if(isset($_POST['btnProcess'])) {
       
         if(isset($_SESSION['cartItems'][$_POST['hdnKey']][$_POST['radSize']]))
-            $_SESSION['cartItems'][$_POST['hdnKey']][$_POST['radSize']] += $_POST['txtQuantity']; 
+            $_SESSION['cartItems'][$_POST['hdnKey']][$_POST['radSize']] += $_POST['txtQuantity']; // if you already purchased this item
         else
-            $_SESSION['cartItems'][$_POST['hdnKey']][$_POST['radSize']] = $_POST['txtQuantity']; 
+            $_SESSION['cartItems'][$_POST['hdnKey']][$_POST['radSize']] = $_POST['txtQuantity']; // if this is the first time you purchased the item
 
-   se
+        
         $_SESSION['totalQuantity'] += $_POST['txtQuantity'];
         header("location: confirm.php");
     }
@@ -81,10 +81,10 @@
                         <input type="number" name="txtQuantity" id="txtQuantity" class="form-control" placeholder="0" min="1" max="100" required>
                         <br>
                         
-                     
+                      
                         <button type="submit" name="btnProcess"  class="btn btn-dark btn-lg" ><i class="fa fa-check-circle"> </i> Confirm Product Purchase</button>
                         
-                      rs </a></button> -->
+                       
 
                         <a href="index.php" class="btn btn-danger btn-lg"><i class="fa fa-arrow-left"></i> Cancel / Go Back</a>
                     </div>                                
